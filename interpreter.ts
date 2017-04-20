@@ -15,7 +15,7 @@ export type Nodes = Node;
 export type Edges = Edge;
 
 export class State {
-    public active: Node[];
+    private active: Node[];
 
     constructor(
         public queue: Node[],
