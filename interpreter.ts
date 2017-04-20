@@ -21,7 +21,7 @@ export class State {
         public queue: Node[],
         public visited: Node[]
         ) {
-        this.active = [...visited, ...queue];
+        this.active = visited;
     }
 }
 
