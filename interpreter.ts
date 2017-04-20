@@ -10,11 +10,12 @@ export class Graph {
     nodes: Nodes[];
 }
 
+// tell sinap what all the node/edge types are
 export type Nodes = Node;
 export type Edges = Edge;
 
 export class State {
-    public active: Node[];    
+    public active: Node[];
 
     constructor(
         public queue: Node[],
