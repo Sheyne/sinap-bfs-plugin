@@ -29,6 +29,8 @@ export function start(input: Graph, startNode: Node): State | Node[] {
     return new State([startNode], []);
 }
 
+declare const console: any;
+
 export function step(current: State): State | Node[] {
     if (current.queue.length === 0) {
         return current.visited;
@@ -37,7 +39,7 @@ export function step(current: State): State | Node[] {
     const [next, ...rest] = current.queue;
     const children = next.children.map(c => c.destination);
 
-    const unvisitedChildren = new Set([...rest, ...children.filter(c => current.visited.indexOf(c) === -1)]);
+    const unvisitedChildren = new Set([...rest, ...children.filter(c => c !== next && current.visited.indexOf(c) === -1)]);
 
     return new State([...unvisitedChildren], [...current.visited, next]);
 }
