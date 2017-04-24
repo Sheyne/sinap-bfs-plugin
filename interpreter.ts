@@ -29,8 +29,6 @@ export function start(input: Graph, startNode: Node): State | Node[] {
     return new State([startNode], []);
 }
 
-declare const console: any;
-
 export function step(current: State): State | Node[] {
     if (current.queue.length === 0) {
         return current.visited;
