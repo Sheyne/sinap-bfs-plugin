@@ -37,7 +37,7 @@ export function step(current: State): State | Node[] {
     const [next, ...rest] = current.queue;
     const children = next.children.map(c => c.destination);
 
-    const unvisitedChildren = children.filter(c => current.visited.indexOf(c) === -1);
+    const unvisitedChildren = new Set([...rest, ...children.filter(c => current.visited.indexOf(c) === -1)]);
 
-    return new State([...rest, ...unvisitedChildren], [...current.visited, next]);
+    return new State([...unvisitedChildren], [...current.visited, next]);
 }
